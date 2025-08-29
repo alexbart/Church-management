@@ -3,13 +3,20 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+    // Choose URI based on NODE_ENV
+    const uri =
+      process.env.NODE_ENV === 'production'
+        ? process.env.MONGODB_URI_PROD // online DB
+        : process.env.MONGODB_URI;     // local DB
+
+    const conn = await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error('Database connection error:', error);
+    console.error('❌ Database connection error:', error);
     process.exit(1);
   }
 };
