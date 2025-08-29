@@ -1,7 +1,12 @@
 // models/Expense.js
 const mongoose = require('mongoose');
+const Counter = require('./Counter');
+const { type } = require('@hapi/joi/lib/extend');
+const string = require('@hapi/joi/lib/types/string');
 
 const expenseSchema = new mongoose.Schema({
+  expenseNumber: {type: String, unique: true}, // e.g. EXP00001
+
   category: { 
     type: String, 
     enum: ['utilities', 'salaries', 'maintenance', 'outreach', 'other'],
@@ -29,5 +34,19 @@ const expenseSchema = new mongoose.Schema({
     default: 'pending'
   }
 }, { timestamps: true });
+
+  // Auto-generate expense number before saving
+expenseSchema.pre('save', async function (next) {
+  if (this.isNew) {
+    const counter = await Counter.findOneAndUpdate(
+      { name: 'Expense' },
+      { $inc: { seq: 1 } },
+      { new: true, upsert: true }
+    );
+
+    this.expenseNumber = `EXP${String(counter.seq).padStart(5, '0')}`;
+  }
+  next();
+});
 
 module.exports = mongoose.model('Expense', expenseSchema);

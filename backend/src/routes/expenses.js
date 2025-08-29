@@ -33,7 +33,19 @@ exports.getExpenses = async (req, reply) => {
       total,
       page: parseInt(page),
       pages: Math.ceil(total / limit),
-      data: expenses
+      data: expenses.map(exp =>({
+        _id: exp._id,
+        expenseNumber: exp.expenseNumber,
+         category: exp.category,
+        amount: exp.amount,
+        date: exp.date,
+        description: exp.description,
+        status: exp.status,
+        recordedBy: exp.recordedBy,
+        approvedBy: exp.approvedBy,
+        createdAt: exp.createdAt,
+        updatedAt: exp.updatedAt
+      }))
     });
   } catch (error) {
     return reply.code(500).send({
@@ -55,7 +67,18 @@ exports.createExpense = async (req, reply) => {
     return reply.code(201).send({
       success: true,
       message: 'Expense created successfully',
-      data: expense
+      data: {
+        _id: expense._id,
+        expenseNumber: exp.expenseNumber, // ✅ include
+        category: expense.category,
+        amount: expense.amount,
+        date: expense.date,
+        description: expense.description,
+        status: expense.status,
+        recordedBy: expense.recordedBy,
+        createdAt: expense.createdAt,
+        updatedAt: expense.updatedAt
+      }
     });
   } catch (error) {
     return reply.code(500).send({
@@ -133,6 +156,7 @@ exports.getExpensesSchema = {
             type: 'object',
             properties: {
               _id: { type: 'string' },
+              expenseNumber: { type: 'string' },
               category: { type: 'string' },
               amount: { type: 'number' },
               date: { type: 'string', format: 'date' },
@@ -207,6 +231,7 @@ exports.createExpenseSchema = {
           type: 'object',
           properties: {
             _id: { type: 'string' },
+            expenseNumber: { type: 'string' },
             category: { type: 'string' },
             amount: { type: 'number' },
             date: { type: 'string', format: 'date' },
@@ -276,6 +301,7 @@ exports.approveExpenseSchema = {
           type: 'object',
           properties: {
             _id: { type: 'string' },
+             expenseNumber: { type: 'string' }, 
             category: { type: 'string' },
             amount: { type: 'number' },
             date: { type: 'string', format: 'date' },
