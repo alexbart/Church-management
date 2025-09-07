@@ -1,0 +1,29 @@
+{"level":"error","message":"Login error: Cannot destructure property 'email' of 'request.body' as it is undefined.","timestamp":"2025-09-05T21:26:38.705Z"}
+{"level":"error","message":"Login error: Cannot destructure property 'email' of 'request.body' as it is undefined.","timestamp":"2025-09-06T06:42:43.444Z"}
+{"level":"error","message":"Login error: Cannot destructure property 'email' of 'request.body' as it is undefined.","timestamp":"2025-09-06T07:13:03.767Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:54:06.451Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:54:06.452Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:55:58.911Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:55:58.911Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:56:07.793Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:56:07.794Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:59:40.141Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:59:40.142Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:59:52.523Z"}
+{"level":"error","message":"Generate financial report error: Cast to date failed for value \"{}\" (type Object) at path \"date\" for model \"Revenue\"","timestamp":"2025-09-06T08:59:52.524Z"}
+{"level":"error","message":"Generate financial report error: Assignment to constant variable.","timestamp":"2025-09-06T09:15:47.163Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"\\n  \"68bb42d055a539e93ca64247\"\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T09:26:41.703Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"68bb42d055a539e93ca64247\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T09:30:17.416Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T09:32:06.799Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T09:41:33.309Z"}
+{"level":"error","message":"Get transaction type error: mongoose is not defined","timestamp":"2025-09-06T09:43:03.314Z"}
+{"level":"error","message":"Get transaction type error: mongoose is not defined","timestamp":"2025-09-06T09:47:13.576Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T09:47:24.826Z"}
+{"level":"error","message":"Get transaction type error: validateObjectId is not defined","timestamp":"2025-09-06T10:22:11.156Z"}
+{"level":"error","message":"Get transaction type error: validateObjectId is not defined","timestamp":"2025-09-06T10:22:50.670Z"}
+{"level":"error","message":"Get transaction type error: validateObjectId is not defined","timestamp":"2025-09-06T10:22:52.351Z"}
+{"level":"error","message":"Get transaction type error: validateObjectId is not defined","timestamp":"2025-09-06T10:23:38.384Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T10:26:31.371Z"}
+{"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"68bb42d055a539e93ca64247\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T10:26:53.015Z"}
+{"level":"error","message":"Get transaction type error: mongoose is not defined","timestamp":"2025-09-06T10:31:47.241Z"}
+{"level":"error","message":"Get transaction type error: transactionType is not a function","timestamp":"2025-09-06T11:07:52.568Z"}
