@@ -27,3 +27,4 @@
 {"level":"error","message":"Get transaction type error: Cast to ObjectId failed for value \"68bb42d055a539e93ca64247\\n\" (type string) at path \"_id\" for model \"TransactionType\"","timestamp":"2025-09-06T10:26:53.015Z"}
 {"level":"error","message":"Get transaction type error: mongoose is not defined","timestamp":"2025-09-06T10:31:47.241Z"}
 {"level":"error","message":"Get transaction type error: transactionType is not a function","timestamp":"2025-09-06T11:07:52.568Z"}
+{"level":"error","message":"Create revenue error: User is not defined","timestamp":"2025-09-07T08:20:22.187Z"}

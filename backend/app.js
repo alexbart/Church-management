@@ -118,79 +118,79 @@ async function startServer() {
 
     // Add debug hook to catch response modifications
     console.log("Adding response debug hooks...");
-    fastify.addHook('onSend', async (request, reply, payload) => {
-      console.log('=== FIRST onSend Hook (Priority: 100) ===');
-      console.log('Initial payload:', payload);
-      console.log('Content-Type:', reply.getHeader('content-type'));
-      console.log('URL:', request.url);
-      return payload;
-    }, { priority: 100 });
+//     fastify.addHook('onSend', async (request, reply, payload) => {
+//       console.log('=== FIRST onSend Hook (Priority: 100) ===');
+//       console.log('Initial payload:', payload);
+//       console.log('Content-Type:', reply.getHeader('content-type'));
+//       console.log('URL:', request.url);
+//       return payload;
+//     }, { priority: 100 });
 
-    fastify.addHook('onSend', async (request, reply, payload) => {
-      console.log('=== LAST onSend Hook (Priority: -100) ===');
-      console.log('Final payload:', payload);
-      console.log('Payload length:', payload?.length || 0);
+//     fastify.addHook('onSend', async (request, reply, payload) => {
+//       console.log('=== LAST onSend Hook (Priority: -100) ===');
+//       console.log('Final payload:', payload);
+//       console.log('Payload length:', payload?.length || 0);
       
-      if (typeof payload === 'string' && payload.length > 0) {
-        try {
-          const parsed = JSON.parse(payload);
-          console.log('Parsed final payload:', parsed);
-        } catch (e) {
-          console.log('Final payload is not JSON');
-        }
-      }
+//       if (typeof payload === 'string' && payload.length > 0) {
+//         try {
+//           const parsed = JSON.parse(payload);
+//           console.log('Parsed final payload:', parsed);
+//         } catch (e) {
+//           console.log('Final payload is not JSON');
+//         }
+//       }
       
-      return payload;
-    }, { priority: -100 });
+//       return payload;
+//     }, { priority: -100 });
 
-   fastify.addHook('onSend', async (request, reply, payload) => {
-  try {
-    console.log('=== FIRST onSend Hook (Priority: 100) ===');
-    console.log('Initial payload type:', typeof payload);
-    console.log('Initial payload length:', payload?.length || 0);
-    console.log('URL:', request.url);
+//    fastify.addHook('onSend', async (request, reply, payload) => {
+//   try {
+//     console.log('=== FIRST onSend Hook (Priority: 100) ===');
+//     console.log('Initial payload type:', typeof payload);
+//     console.log('Initial payload length:', payload?.length || 0);
+//     console.log('URL:', request.url);
     
-    if (typeof payload === 'string' && payload.length > 0) {
-      try {
-        const parsed = JSON.parse(payload);
-        console.log('Initial parsed payload keys:', Object.keys(parsed));
-      } catch (e) {
-        console.log('Initial payload is not JSON');
-      }
-    }
-  } catch (error) {
-    console.error('Error in first onSend hook:', error.message);
-  }
-  return payload;
-}, { priority: 100 });
+//     if (typeof payload === 'string' && payload.length > 0) {
+//       try {
+//         const parsed = JSON.parse(payload);
+//         console.log('Initial parsed payload keys:', Object.keys(parsed));
+//       } catch (e) {
+//         console.log('Initial payload is not JSON');
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error in first onSend hook:', error.message);
+//   }
+//   return payload;
+// }, { priority: 100 });
 
-// Emergency restoration hook with better error handling
-fastify.addHook('onSend', async (request, reply, payload) => {
-  try {
-    if (reply.getHeader('content-type')?.includes('application/json') && 
-        typeof payload === 'string' && 
-        payload.length > 0) {
+// // Emergency restoration hook with better error handling
+// fastify.addHook('onSend', async (request, reply, payload) => {
+//   try {
+//     if (reply.getHeader('content-type')?.includes('application/json') && 
+//         typeof payload === 'string' && 
+//         payload.length > 0) {
       
-      const response = JSON.parse(payload);
+//       const response = JSON.parse(payload);
       
-      // Detect if data was stripped (success true but empty data)
-      if (response.success === true && response.data && Object.keys(response.data).length === 0) {
-        console.log('⚠️  DETECTED DATA STRIPPING - attempting restoration');
+//       // Detect if data was stripped (success true but empty data)
+//       if (response.success === true && response.data && Object.keys(response.data).length === 0) {
+//         console.log('⚠️  DETECTED DATA STRIPPING - attempting restoration');
         
-        // Try to restore from request context
-        if (request.originalResponseData) {
-          response.data = request.originalResponseData;
-          console.log('✅ Successfully restored original data');
-          return JSON.stringify(response);
-        }
-      }
-    }
-  } catch (error) {
-    console.log('Error in restoration hook (non-fatal):', error.message);
-    // Don't throw, just return original payload
-  }
-  return payload;
-}, { priority: -200 }); // Lowest priority - runs very last
+//         // Try to restore from request context
+//         if (request.originalResponseData) {
+//           response.data = request.originalResponseData;
+//           console.log('✅ Successfully restored original data');
+//           return JSON.stringify(response);
+//         }
+//       }
+//     }
+//   } catch (error) {
+//     console.log('Error in restoration hook (non-fatal):', error.message);
+//     // Don't throw, just return original payload
+//   }
+//   return payload;
+// }, { priority: -200 }); // Lowest priority - runs very last
 
     // Start server on port 4000
     console.log("Starting server...");

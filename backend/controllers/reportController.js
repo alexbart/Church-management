@@ -39,6 +39,13 @@ exports.generateFinancialReport = async (request, reply) => {
       format: format,
     });
 
+    // Add this debug code temporarily to your report controller
+console.log('Request query:', request.query);
+console.log('Parsed startDate:', startDate);
+console.log('Parsed endDate:', endDate);
+console.log('StartDate type:', typeof startDate);
+console.log('EndDate type:', typeof endDate);
+
     if (format === "pdf") {
       reply
         .header("Content-Type", "application/pdf")
@@ -233,3 +240,4 @@ exports.importExpenses = async (request, reply) => {
     reply.code(500).send({ success: false, message: error.message });
   }
 };
+
